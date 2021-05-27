@@ -1,4 +1,5 @@
 # MaskDetector_YOLO_RaspberryPi
+<<<<<<< HEAD
 
 #### 介绍
 基于YOLOv4的口罩识别系统，通过树莓派采集图像
@@ -35,3 +36,6 @@
 4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
 5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
 6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+=======
+Mask detection system based on yolov4 with self-built dataset and video capture using Raspberry Pi
+>>>>>>> 1ec146c4371f7059464a45c035339a8b65e2b33d
