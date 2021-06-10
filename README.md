@@ -84,5 +84,5 @@
 
 ### 树莓派部分
 
-[树莓派选购](..\DOC\树莓派选购.md)
+[树莓派选购](https://github.com/Yankfu/MaskDetector_YOLO_RaspberryPi/blob/main/DOC/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%80%89%E8%B4%AD.md)
 
