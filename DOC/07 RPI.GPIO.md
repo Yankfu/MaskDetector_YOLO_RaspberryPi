@@ -90,3 +90,13 @@ while True
 
 GPIO.cleanup()    //程序的最后别忘记清除所有资源
 ```
+==========
+到这里就是最后一步了
+我们现在有可以获取视频的**mjpg-streamer**，有可以处理视频数据的**yolo**，有可以发送post请求的**request**
+我们现在需要做的就是接收视频处理完后的post请求
+这里使用flask搭建，因为没有过多的需求，只需要接收然后判断即可，判断完成后再点亮对应的二极管就完成任务了，具体实现在flaskLights.py里面，非常简单
+
+同mjpg-streamer我们同样让这个后台运行就好
+``` shell
+nohup python flaskLights.py >> lights.log 2>&1 &
+```
