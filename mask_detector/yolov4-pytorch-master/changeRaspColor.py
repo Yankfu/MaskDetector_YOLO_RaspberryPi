@@ -1,7 +1,7 @@
 import urllib.request
 import urllib.parse
 
-url = "localhost:8888/"
+url = "http://192.168.1.181:8888/"
 
 def changeLightsColor(color):
     color = {

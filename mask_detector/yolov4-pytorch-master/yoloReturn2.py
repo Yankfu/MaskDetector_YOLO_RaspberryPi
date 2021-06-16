@@ -25,9 +25,11 @@ from utils.utils import (DecodeBox, bbox_iou, letterbox_image,
 #--------------------------------------------#
 class YOLO(object):
     _defaults = {
-        "model_path"        : 'model_data/yolo4_weights.pth',
-        "anchors_path"      : 'model_data/yolo_anchors.txt',
-        "classes_path"      : 'model_data/coco_classes.txt',
+        # "model_path"        : 'mask_detector/yolov4-pytorch-master/model_data/yolo4_weights.pth',
+        "model_path"        : 'mask_detector/yolov4-pytorch-master/model_data/Epoch97-Total_Loss0.5588-Val_Loss0.3630.pth',
+        "anchors_path"      : 'mask_detector/yolov4-pytorch-master/model_data/yolo_anchors.txt',
+        # "classes_path"      : 'model_data/coco_classes.txt',
+        "classes_path"      : 'mask_detector/yolov4-pytorch-master/model_data/mask_classes.txt',
         "model_image_size"  : (416, 416, 3),
         "confidence"        : 0.5,
         "iou"               : 0.3,

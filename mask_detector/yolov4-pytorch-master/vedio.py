@@ -9,16 +9,32 @@ import time
 import cv2
 import numpy as np
 from PIL import Image
+import changeRaspColor
 
-from yolo import YOLO
+from yoloReturn2 import YOLO
+# from changeRaspColor import ChangeColor
+
+# 这里给yolo的return添加了一个参数label，如果检测到大于一个未佩戴口罩的就调用函数
+def changeColor(labels):
+    len = 0
+    for i in labels:
+        findMask = str(i, encoding = "utf-8")
+        if findMask.find("no_mask") != -1:
+            len += 1
+
+    if len > 0 :
+        changeRaspColor.changeLightsColor("01")
+    if len == 0 :
+        changeRaspColor.changeLightsColor("10")
 
 yolo = YOLO()
 #-------------------------------------#
 #   调用摄像头
 #   capture=cv2.VideoCapture("1.mp4")
+# http://192.168.1.147:8080/?action=stream
 #-------------------------------------#
 capture=cv2.VideoCapture(0)
-# capture=cv2.VideoCapture("img/4b0b17ca983d6ee46e449d3efdbaa6fa.mp4")
+# capture=cv2.VideoCapture("http://192.168.1.147:8080/?action=stream")
 fps = 0.0
 while(True):
     t1 = time.time()
@@ -27,10 +43,11 @@ while(True):
     # 格式转变，BGRtoRGB
     frame = cv2.cvtColor(frame,cv2.COLOR_BGR2RGB)
     # 转变成Image
-    frame = Image.fromarray(np.uint8(frame)) 
+    frame = Image.fromarray(np.uint8(frame))
     # 进行检测
-    frame = np.array(yolo.detect_image(frame))
-
+    img,labels = yolo.detect_image(frame)
+    changeColor(labels)
+    frame = np.array(img)
     # RGBtoBGR满足opencv显示格式
     frame = cv2.cvtColor(frame,cv2.COLOR_RGB2BGR)
 
